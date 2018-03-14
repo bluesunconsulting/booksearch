@@ -24,3 +24,15 @@ function dd(...$vars)
         echo '</pre>';
 
 }//end dd()
+
+
+function apikey()
+{
+    $dir = realpath(__DIR__);
+    $path = $dir."/../apikey.txt";
+
+    $key = file_get_contents($path);
+
+    return trim($key);
+
+}

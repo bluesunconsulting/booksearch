@@ -28,7 +28,7 @@ class SearchPageAction implements ServerMiddlewareInterface
     {
 
 
-        $apikey = "AIzaSyA1cLys9ZkcugISlgrZRw-O5Cd3gAQ917Y";
+        $apikey = apikey();
         $url = "https://www.googleapis.com/books/v1/volumes?q=";
 
         $data =  $request->getParsedBody();
@@ -88,6 +88,6 @@ class SearchPageAction implements ServerMiddlewareInterface
         }
 
 
-        return new HtmlResponse($this->template->render('app::home-page', ['data' => $data,'books' => $books, ]));
+        return new HtmlResponse($this->template->render('app::home-page', ['data' => $data,'books' => $books,]));
     }
 }

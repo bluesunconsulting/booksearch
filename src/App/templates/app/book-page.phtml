@@ -1,0 +1,58 @@
+<?php $this->layout('layout::default', ['title' => 'Home']);
+?>
+<style>
+    table
+    {
+        border-style: solid;
+        border-width: 2px;
+        border-color: black;
+    }
+    table.bookinfo td, table.bookinfo th  {
+        vertical-align: top;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        padding: 1em;
+    }
+
+</style>
+
+
+<div class="row">
+    <div class="col-md-12">
+
+<?php if(!isset($book['error'])) {?>
+    <div class="col-md-4">
+        <img src="<?= $book['image']?>">
+    </div>
+    <div class="col-md-8">
+        <h3><?= $book['title'] ?></h3>
+        <h4><?= $book['subtitle'] ?></h4>
+        <h5><?= $book['authors'] ?></h5>
+        <table class="bookinfo">
+            <tr><th>Page Count</th><td><?=$book['pagecount'] ?></td></tr>
+            <tr><th>Printed Page Count</th><td><?=$book['printedPageCount'] ?></td></tr>
+            <tr><th>ISBNs</th><td><?=$book['isbns'] ?></td></tr>
+            <tr><th>Publisher</th><td><?=$book['publisher'] ?></td></tr>
+            <tr><th>List Price</th><td><?=$book['listPrice'] ?></td></tr>
+
+        </table>
+        <br><br>
+        <?=$book['description']?>
+
+    </div>
+
+
+ <?php }
+ else
+ {
+ ?>
+
+     <h3>Book Not Found</h3>
+
+  <?php }
+ // dd($rawbook);
+  ?>
+    </div>
+
+</div>

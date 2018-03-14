@@ -1,0 +1,71 @@
+<?php $this->layout('layout::default', ['title' => 'Home']);
+$params = isset($data['params']) ? $data['params'] : '';
+$bookresults = isset($books) ? $books : [];
+?>
+<style>
+    table
+    {
+        border-style: solid;
+        border-width: 2px;
+        border-color: black;
+    }
+    table.searchresults td, table.searchresults th  {
+        vertical-align: top;
+        border-style: solid;
+        border-width: 1px;
+        border-color: black;
+        padding: 1em;
+    }
+
+</style>
+<div class="jumbotron">
+    <h1>Google Book API Search Example</h1>
+    <h3>Enter any Book Criteria and view results from the Google API</h3>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" action="/search">
+            <h3>Search</h3><input type="text" name="params" size="50" value="<?=$params?>"> <br /><br /><input type="submit" value="Search">
+        </form>
+    </div>
+
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <?php  if(count($bookresults)){        ?>
+        <h4>Search Results</h4>
+            <table class="searchresults">
+                <tr>
+                    <th>ISBNs</th>
+                    <th>Title</th>
+                    <th>Subtitle</th>
+                    <th>Authors</th>
+                    <th>Description</th>
+                    <th>Page Count</th>
+                </tr>
+
+            <?php
+            foreach($bookresults as $book){
+            ?>
+                <tr>
+                    <td><?= $book['isbns'] ?></td>
+                    <td><a href="/book/<?= $book['id'] ?>"><?= $book['title'] ?></a></td>
+                    <td><?= $book['subtitle'] ?></td>
+                    <td><?= $book['authors'] ?></td>
+                    <td><?= $book['description'] ?></td>
+                    <td><?= $book['pagecount'] ?></td>
+
+                </tr>
+
+
+
+            <?php  }  ?>
+
+            </table>
+        <?php } ?>
+    </div>
+
+</div>
+

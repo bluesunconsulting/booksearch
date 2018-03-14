@@ -28,7 +28,7 @@ class SearchPageAction implements ServerMiddlewareInterface
     {
 
 
-        $apikey = "AIzaSyCqk49mlAXy8kXSe81C_wib3nsFnEr1-S0";
+        $apikey = "AIzaSyA1cLys9ZkcugISlgrZRw-O5Cd3gAQ917Y";
         $url = "https://www.googleapis.com/books/v1/volumes?q=";
 
         $data =  $request->getParsedBody();

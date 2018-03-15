@@ -65,7 +65,7 @@ class BookPageAction implements ServerMiddlewareInterface
                     }
                 $isbns = implode('<br>', $isbns);
 
-                $imageurl = '/image-not-found.gif';
+                $imageurl = '/notfound.png';
                 switch(true){
                     case  isset($vol['imageLinks']['small']):
                         $imageurl = $vol['imageLinks']['small'];
